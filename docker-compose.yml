@@ -1,0 +1,9 @@
+services:
+  simulation:
+    image: docker/compose
+    ports:
+      - "8080:8080"
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
