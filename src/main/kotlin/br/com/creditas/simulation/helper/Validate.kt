@@ -5,10 +5,14 @@ import br.com.creditas.simulation.exception.BadRequestException
 
 fun validateForm(simulationForm: SimulationForm) {
     if (simulationForm.value <= 0) {
-        throw BadRequestException("Valor inválido. Tente novamente.")
+        throw BadRequestException(
+            "Valor solicitado inválido. Por favor, Tente novamente.",
+        )
     }
 
     if (simulationForm.paymentTerm <= 0) {
-        throw BadRequestException("Prazo de pagamento inválido. Tente novamente.")
+        throw BadRequestException(
+            "Prazo de pagamento inválido. Tente novamente.",
+        )
     }
 }

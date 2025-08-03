@@ -18,7 +18,7 @@ private const val TWO_PERCENT = 2.0
 
 @Service
 class CreditSimulationService {
-    fun getSimulation(
+    fun simulate(
         simulation: SimulationForm,
     ): SimulationView {
         validateForm(simulation)
@@ -39,7 +39,9 @@ class CreditSimulationService {
     private fun getAnnualInterestRate(dateOfBirth: LocalDate): Double {
         val age = (LocalDate.now().year) - (dateOfBirth.year)
         return when {
-            age < 18 -> throw BadRequestException("Data de nascimento inválida. Tente novamente.")
+            age < 18 -> throw BadRequestException(
+                "O serviço solicitado só pode ser contratado para maiores de 18 anos.",
+            )
             age <= 25 -> FIVE_PERCENT
             age in 26..40 -> TREE_PERCENT
             age in 41..60 -> TWO_PERCENT

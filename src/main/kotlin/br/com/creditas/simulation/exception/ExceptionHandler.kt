@@ -19,7 +19,7 @@ class ExceptionHandler {
     ): ResponseEntity<ErrorView> {
         val errorView = ErrorView(
             status = HttpStatus.INTERNAL_SERVER_ERROR.value(),
-            code = HttpStatus.INTERNAL_SERVER_ERROR.name,
+            name = HttpStatus.INTERNAL_SERVER_ERROR.name,
             message = exception.message,
             path = req.servletPath,
         )
@@ -34,7 +34,7 @@ class ExceptionHandler {
     ): ResponseEntity<ErrorView> {
         val errorView = ErrorView(
             status = HttpStatus.BAD_REQUEST.value(),
-            code = HttpStatus.BAD_REQUEST.name,
+            name = HttpStatus.BAD_REQUEST.name,
             message = exception.message,
             path = req.servletPath,
         )
@@ -54,7 +54,7 @@ class ExceptionHandler {
 
         val errorView = ErrorView(
             status = HttpStatus.BAD_REQUEST.value(),
-            code = HttpStatus.BAD_REQUEST.name,
+            name = HttpStatus.BAD_REQUEST.name,
             message = errorMessage.toString(),
             path = req.servletPath,
         )
